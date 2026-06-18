@@ -14,6 +14,4 @@ Tela única responsiva desenvolvida com HTML, CSS separado e Tailwind CSS via CD
 
 Abra o arquivo `index.html` diretamente no navegador.
 
-## Observação sobre Tailwind
 
-O projeto usa Tailwind CSS via CDN para facilitar a abertura direta do HTML pelo professor, sem precisar instalar Node.js, npm ou executar build. O arquivo `style.css` mantém a identidade visual própria e funciona como camada de estilos separada.

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinControl Gothic - Dashboard de Gastos</title>
+
+  <!-- Tailwind CSS via CDN: o arquivo abre direto pelo index.html, sem build e sem JavaScript próprio. -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- CSS próprio separado, conforme exigência da atividade. -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-shell min-h-screen lg:grid lg:grid-cols-12">
+    <!-- Menu lateral / topo mobile -->
+    <aside class="sidebar lg:col-span-3 xl:col-span-2">
+      <div class="brand-block flex items-center justify-between lg:block">
+        <a href="#" class="brand flex items-center gap-3" aria-label="FinControl Gothic">
+          <img src="assets/logo-fincontrol.svg" alt="Logo FinControl" class="brand-logo" />
+          <div>
+            <span class="brand-name block">FinControl</span>
+            <span class="brand-subtitle block">Gothic Finance</span>
+          </div>
+        </a>
+
+        <span class="mobile-badge lg:hidden">Desktop / Mobile</span>
+      </div>
+
+      <nav class="nav-panel mt-8" aria-label="Menu principal">
+        <a class="nav-item active" href="#resumo">Resumo</a>
+        <a class="nav-item" href="#registro">Registrar gasto</a>
+        <a class="nav-item" href="#categorias">Categorias</a>
+        <a class="nav-item" href="#historico">Histórico</a>
+      </nav>
+
+      <section class="sidebar-card mt-8">
+        <p class="sidebar-label">Limite mensal</p>
+        <strong>R$ 4.000,00</strong>
+        <div class="progress-track mt-4" aria-label="71% do limite utilizado">
+          <div class="progress-fill blue" style="width: 71%;"></div>
+        </div>
+        <p class="sidebar-note mt-3">71% utilizado. Revise lazer e alimentação.</p>
+      </section>
+    </aside>
+
+    <!-- Conteúdo principal -->
+    <main class="main-content lg:col-span-9 xl:col-span-10" id="resumo">
+      <header class="hero-section grid gap-6 xl:grid-cols-12">
+        <div class="xl:col-span-8">
+          <p class="eyebrow">Sistema Fintech · Controle de gastos pessoais</p>
+          <h1 class="hero-title">Dashboard financeiro em estilo gótico</h1>
+          <p class="hero-text mt-4">
+            Uma tela única para visualizar gastos, registrar nova despesa, acompanhar limites por categoria e consultar os últimos lançamentos.
+          </p>
+        </div>
+
+        <div class="hero-actions xl:col-span-4">
+          <div class="period-card">
+            <span>Período analisado</span>
+            <strong>Junho / 2026</strong>
+            <p>Resumo atualizado conforme os registros do usuário.</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Indicadores -->
+      <section class="kpi-grid grid gap-4 sm:grid-cols-2 xl:grid-cols-4 mt-8" aria-label="Indicadores financeiros">
+        <article class="kpi-card">
+          <span>Total gasto</span>
+          <strong>R$ 2.840,00</strong>
+          <p>+12% em relação ao mês anterior</p>
+        </article>
+
+        <article class="kpi-card">
+          <span>Saldo previsto</span>
+          <strong>R$ 1.160,00</strong>
+          <p>Dentro do planejamento mensal</p>
+        </article>
+
+        <article class="kpi-card">
+          <span>Maior categoria</span>
+          <strong>Moradia</strong>
+          <p>R$ 1.200,00 registrados</p>
+        </article>
+
+        <article class="kpi-card danger">
+          <span>Categoria crítica</span>
+          <strong>Lazer</strong>
+          <p>112% do limite definido</p>
+        </article>
+      </section>
+
+      <!-- Conteúdo central -->
+      <section class="content-layout grid gap-6 xl:grid-cols-12 mt-8">
+        <!-- Formulário -->
+        <article class="panel xl:col-span-4" id="registro">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Ação do sistema</p>
+              <h2>Registrar novo gasto</h2>
+            </div>
+            <span class="icon-pill">+</span>
+          </div>
+
+          <form class="expense-form mt-6" action="#" method="get">
+            <label for="valor">Valor</label>
+            <input id="valor" name="valor" type="text" value="R$ 186,90" />
+
+            <label for="data">Data</label>
+            <input id="data" name="data" type="date" value="2026-06-18" />
+
+            <label for="descricao">Descrição</label>
+            <input id="descricao" name="descricao" type="text" value="Compra no supermercado" />
+
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria">
+              <option>Alimentação</option>
+              <option>Moradia</option>
+              <option>Transporte</option>
+              <option>Escolar</option>
+              <option>Lazer</option>
+              <option>Saúde</option>
+            </select>
+
+            <button class="primary-button mt-6" type="submit">Salvar gasto</button>
+          </form>
+        </article>
+
+        <!-- Categorias -->
+        <article class="panel xl:col-span-4" id="categorias">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Agrupamento visual</p>
+              <h2>Gastos por categoria</h2>
+            </div>
+            <span class="icon-pill">≋</span>
+          </div>
+
+          <div class="category-list mt-6">
+            <div class="category-row">
+              <div>
+                <strong>Moradia</strong>
+                <span>R$ 1.200 de R$ 1.500</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill blue" style="width:80%;"></div></div>
+            </div>
+
+            <div class="category-row">
+              <div>
+                <strong>Alimentação</strong>
+                <span>R$ 760 de R$ 1.000</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill white" style="width:76%;"></div></div>
+            </div>
+
+            <div class="category-row">
+              <div>
+                <strong>Transporte</strong>
+                <span>R$ 430 de R$ 700</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill blue" style="width:61%;"></div></div>
+            </div>
+
+            <div class="category-row danger-line">
+              <div>
+                <strong>Lazer</strong>
+                <span>R$ 450 de R$ 400</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill danger" style="width:100%;"></div></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Resumo visual -->
+        <article class="panel summary-panel xl:col-span-4">
+          <div class="panel-header">
+            <div>
+              <p class="section-kicker">Resumo mensal</p>
+              <h2>Saúde financeira</h2>
+            </div>
+            <span class="icon-pill">☾</span>
+          </div>
+
+          <div class="radial-card mt-6" aria-label="71% do orçamento mensal utilizado">
+            <div class="radial-number">71%</div>
+            <p>do orçamento mensal utilizado</p>
+          </div>
+
+          <div class="insight-box mt-6">
+            <strong>Alerta inteligente</strong>
+            <p>Se o ritmo de gastos continuar, a categoria Lazer terminará o mês acima do limite planejado.</p>
+          </div>
+        </article>
+      </section>
+
+      <!-- Histórico -->
+      <section class="panel mt-8" id="historico">
+        <div class="panel-header table-header">
+          <div>
+            <p class="section-kicker">Listagem</p>
+            <h2>Histórico recente de gastos</h2>
+          </div>
+
+          <div class="filter-group flex flex-col sm:flex-row gap-3">
+            <select aria-label="Filtro de categoria">
+              <option>Todas as categorias</option>
+              <option>Alimentação</option>
+              <option>Moradia</option>
+              <option>Lazer</option>
+            </select>
+            <button class="secondary-button" type="button">Filtrar</button>
+          </div>
+        </div>
+
+        <div class="table-wrap mt-6">
+          <table class="expense-table">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th>Valor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Data">18/06/2026</td>
+                <td data-label="Descrição">Supermercado</td>
+                <td data-label="Categoria">Alimentação</td>
+                <td data-label="Status"><span class="status ok">Registrado</span></td>
+                <td data-label="Valor"><strong>R$ 186,90</strong></td>
+              </tr>
+              <tr>
+                <td data-label="Data">16/06/2026</td>
+                <td data-label="Descrição">Farmácia</td>
+                <td data-label="Categoria">Saúde</td>
+                <td data-label="Status"><span class="status ok">Registrado</span></td>
+                <td data-label="Valor"><strong>R$ 59,90</strong></td>
+              </tr>
+              <tr>
+                <td data-label="Data">12/06/2026</td>
+                <td data-label="Descrição">Streaming</td>
+                <td data-label="Categoria">Lazer</td>
+                <td data-label="Status"><span class="status alert">Atenção</span></td>
+                <td data-label="Valor"><strong>R$ 39,90</strong></td>
+              </tr>
+              <tr>
+                <td data-label="Data">05/06/2026</td>
+                <td data-label="Descrição">Aluguel</td>
+                <td data-label="Categoria">Moradia</td>
+                <td data-label="Status"><span class="status ok">Registrado</span></td>
+                <td data-label="Valor"><strong>R$ 1.200,00</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
